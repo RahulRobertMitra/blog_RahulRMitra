@@ -7,6 +7,7 @@ class PostAdmin(admin.ModelAdmin):
         'title',
         'created',
         'updated',
+        
     )
 @admin.register(models.Comment)
 class CommentsAdmin(admin.ModelAdmin):
@@ -21,9 +22,14 @@ class CommentsAdmin(admin.ModelAdmin):
 
     )
 
+    list_filter = (
+        'Approved',
+        )
     search_fields = (
-        'title',
-    )
+        'Name',
+        'Email',
+        'Text',
+        )
     pass
 
 admin.site.register(models.Post, PostAdmin)
